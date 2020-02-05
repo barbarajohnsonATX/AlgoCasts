@@ -11,10 +11,15 @@ function palindrome(str) {
 
 
     //Solution 1
-    return str === str.split('').reduce((reversed, ch) =>  ch + reversed, '') 
+    //return str === str.split('').reduce((reversed, ch) =>  ch + reversed, '') 
 
     //Solution 2
     //return str === str.split('').reverse().join('')
+
+    //Solution 3
+    return str.split('').every((ch, index) => {
+        return ch === str[str.length - 1 - index]
+    } )
 
 }
 
