@@ -29,6 +29,7 @@ function reverse(str) {
     //Solution 3
     // 1st arg is the accumulator (reversed string) with initial value of '', 
     // 2nd is the ch out of array
+    debugger
     return str.split('').reduce((reversed, ch) =>  ch + reversed, '') 
 
     //Solution 4
@@ -42,5 +43,5 @@ function reverse(str) {
 
 }
 
- 
+ reverse('abcdefg')
 module.exports = reverse;
