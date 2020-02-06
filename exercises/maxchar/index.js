@@ -25,7 +25,7 @@ function maxChar(str) {
     let maxValue = 0
     let maxChar = ''
 
-    //iterate through string
+    //iterate through string to build counts object
     for(let ch of str) {
         //if counts[ch] has not been defined yet, set to 1, otherwise increment
         counts[ch] = counts[ch] + 1 || 1
