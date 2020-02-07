@@ -15,7 +15,7 @@ function removeExtraCharsAndSort(string) {
 
 function anagrams(stringA, stringB) {
 
-    return removeExtraCharsAndSort(stringA) == removeExtraCharsAndSort(stringB)
+    return removeExtraCharsAndSort(stringA) === removeExtraCharsAndSort(stringB)
 
 }
 
