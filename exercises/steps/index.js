@@ -19,7 +19,8 @@
 
 function steps(n) {
     let x = 1
- 
+    let str = ''
+    
     while(x <= n) {
         str = '#'.repeat(x)
         if (x != n ) {
