@@ -12,7 +12,7 @@
 //   pyramid(3)
 //       '  #  ' Math.floor(3/2) + 1 -  row = 1 + 1 -  0 = 2
 //       ' ### ' Math.floor(3/2) + 1 - 1 = 1
-//       '#####' total length 2*3-5 = 5; 1 + 1 -2 = 0
+//       '#####' total length 2*3-1
 //   pyramid(5)
 //       '    #    ' ;# in Math.floor(9/2) - 0 = 4
 //       '   ###   ' ;# in Math.floor(9/2) - 1 = 3
@@ -20,7 +20,7 @@
 //       ' ####### ' ;# in Math.floor(9/2) - 3 = 1
 //       '#########' total length = n * 2 - 1 = 9
 
-function pyramid(n) {
+/* function pyramid(n) {
     let totalLength = n * 2 - 1
     let midPoint = Math.floor(totalLength/2)
 
@@ -34,11 +34,35 @@ function pyramid(n) {
             }
          }
          console.log(stair)
-         
-      
     }
 
+} */
+
+
+function pyramid(n, row = 0, stair = '') {
+    let totalLength = n * 2 - 1
+    let midPoint = Math.floor(totalLength / 2)
+      
+    if (n === row) {
+        return 
+    }
+
+    if (stair.length === totalLength) {
+        console.log(stair)
+        pyramid(n, row + 1)
+        return 
+    }
+
+    if (stair.length >= midPoint - row && stair.length <= midPoint + row) {
+        stair += "#"
+    } else {
+        stair += ' '
+    }
+    pyramid(n, row, stair)
+
 }
+
+
 
 pyramid(3)
 
