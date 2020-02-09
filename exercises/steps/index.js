@@ -17,13 +17,15 @@
 //       '### '
 //       '####'
 
-function steps(n) {
+//Solution 1
+/* function steps(n) {
     let x = 1
     let str = ''
-    
+
     while(x <= n) {
         str = '#'.repeat(x)
-        if (x != n ) {
+
+        if (x !== n ) {
             str = str + " ".repeat(n - x)
         }   
 
@@ -32,6 +34,27 @@ function steps(n) {
          
     }
      
+} */
+
+//Solution 2
+function steps(n, row = 0, stair = '') {
+    if (n === row) {
+        return 
+    }
+
+    if (n === stair.length) {
+        console.log(stair)
+        steps(n, row + 1)
+        return 
+    }
+
+    if (stair.length <= row) {
+        stair += "#"
+    } else {
+        stair += ' '
+    }
+    steps(n, row, stair)
+
 }
 
  steps(5)
