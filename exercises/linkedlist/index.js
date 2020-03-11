@@ -2,8 +2,99 @@
 // Implement classes Node and Linked Lists
 // See 'directions' document
 
-class Node {}
 
-class LinkedList {}
+
+// Creates a class instance to represent a node. 
+// The node should have two properties, 'data' and 'next'. 
+// Accept both of these as arguments to the 'Node' constructor, 
+// then assign them to the instance as properties 'data' and 'next'. 
+// If 'next' is not provided to the constructor, then default its value to be 'null'.
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+      }
+
+}
+
+// Create a class to represent a linked list. 
+// When created, a linked list should have *no* head node associated with it. 
+// The LinkedList instance will have one property, 'head', which is a reference to the first node of the linked list. 
+// By default 'head' should be 'null'.
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+
+    //Creates a new Node from argument 'data' and assigns the resulting node to the 'head' property. 
+    //Make sure to handle the case in which the linked list already has a node assigned to the 'head' property.
+    insertFirst(data) {
+        //pass existing head as newNode next
+        const newNode = new Node(data, this.head);
+        this.head = newNode;
+        
+    }
+
+    //Returns the number of nodes in the linked list.
+    size() {
+        let count = 0;
+        let currentNode = this.head 
+        while (currentNode ) {
+            count ++;
+            currentNode = currentNode.next
+        }
+        return count ;
+
+    }
+
+    getFirst() {
+        return this.head
+    }
+
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+
+          
+        let currentNode = this.head 
+        while(currentNode.next ) {
+            currentNode = currentNode.next 
+        }
+
+        return currentNode;
+    }
+ 
+    clear() {
+        this.head = null;
+    }
+
+    removeFirst() {
+        let firstNode = this.getFirst();
+        this.head = firstNode.next;
+
+    }
+
+    removeLast() {
+    
+        if(!this.size() ) {
+            return
+        } else if (this.size() === 1) {
+            this.head = null
+            return 
+        } else {
+            let lastNode = this.getLast();
+            let node = this.getFirst()
+            
+            while(node.next !== lastNode) {
+                node = node.next 
+            }
+            node.next = null 
+        }
+
+    }
+
+
+}
 
 module.exports = { Node, LinkedList };
