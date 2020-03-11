@@ -94,6 +94,12 @@ class LinkedList {
 
     }
 
+    insertLast(data) {
+        const newNode = new Node(data);
+        let last = this.getLast();
+        last.next = newNode
+    }
+
 
 }
 
