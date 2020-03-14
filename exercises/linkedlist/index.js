@@ -95,11 +95,31 @@ class LinkedList {
     }
 
     insertLast(data) {
-        const newNode = new Node(data);
-        let last = this.getLast();
-        last.next = newNode
-    }
+        const last = this.getLast();
+    
+        if (last) {
+          last.next = new Node(data);
+        } else {
+          this.head = new Node(data);
+        }
+      }
 
+    getAt(index) {
+
+        let count = 0;
+        let node = this.head;
+        while (node) {
+          if (count === index) {
+            return node;
+          }
+    
+          node = node.next;
+          count++;
+
+        }
+        return null;
+
+    }
 
 }
 
