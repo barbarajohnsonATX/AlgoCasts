@@ -11,6 +11,32 @@
 // 4       5
 // Answer: [1, 3, 2]
 
-function levelWidth(root) {}
+function levelWidth(root) {
+    const counters = [0]
+    //'s' is just a character used as a pointer as a stopper
+    const arr = [root, 's']
+ 
+     while(arr.length) {
+        let node = arr.shift()
+        if(node === 's') {
+            //new counters 's' element refers to new level initialized to 0
+            counters.push(0)
+            arr.push(node)
+
+        } else {
+            //increment last counters element by 1
+            counters[counters.length-1] += 1
+            arr.push(...node.children)
+        }
+
+        if(arr.length === 1 && arr[0] === 's') {
+            return counters
+        }
+ 
+
+    }
+
+
+}
 
 module.exports = levelWidth;
