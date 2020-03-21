@@ -12,6 +12,8 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
+
+//fast moves twice as fast as slow, so slow is midpoint
 function midpoint(list) {
   let slow = list.getFirst();
   let fast = list.getFirst();

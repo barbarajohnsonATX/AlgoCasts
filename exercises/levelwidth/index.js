@@ -16,7 +16,7 @@ function levelWidth(root) {
     //'s' is just a character used as a pointer as a stopper
     const arr = [root, 's']
  
-     while(arr.length) {
+     while(arr.length > 1) {
         let node = arr.shift()
         if(node === 's') {
             //new counters 's' element refers to new level initialized to 0
@@ -29,12 +29,13 @@ function levelWidth(root) {
             arr.push(...node.children)
         }
 
-        if(arr.length === 1 && arr[0] === 's') {
-            return counters
-        }
+         
  
 
     }
+    
+    return counters
+
 
 
 }
